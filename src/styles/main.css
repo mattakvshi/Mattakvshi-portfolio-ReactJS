@@ -1,0 +1,381 @@
+@import './reset.css';
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap');
+
+/* 
+font-family: 'DM Sans', sans-serif;
+font-family: 'Poppins', sans-serif; 
+*/
+
+:root {
+	--black: #171718;
+	--black-border: #26292d;
+	--white: #fff;
+	--purple: #5c62ec;
+	/* 0E05F8 */
+
+	--heder-text: var(--white);
+	--accent: var(--purple);
+
+	/* Light mode */
+	--dark-border: rgba(255, 255, 255, 0.1);
+	--dark-bg: #282830;
+	--page-bg: var(--white);
+	--text-color: var(--black);
+	--project-card-bg: var(--white);
+	--box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.4);
+}
+
+.dark {
+	/* Dark mode */
+	--dark-border: var(--black-border);
+	--dark-bg: var(--black);
+	--page-bg: rgba(23, 23, 24, 0.95);
+	--text-color: var(--white);
+	--project-card-bg: var(--black);
+	--box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.25);
+}
+
+html,
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+
+	font-family: 'DM Sans', sans-serif;
+	letter-spacing: -0.5px;
+
+	/* Color mode */
+	background-color: var(--page-bg);
+	color: var(--text-color);
+}
+
+/* General */
+
+/* Нам необходима ширина контейнера 1170 пикселей, 1200 пикселей - 15 отступ слева - 15 отступ справа = 1170 пикселей*/
+.conteiner {
+	margin: 0 auto;
+	padding: 0 15px;
+	max-width: 1200px;
+}
+
+.section {
+	padding: 70px 0;
+}
+
+.title-1 {
+	margin-bottom: 60px;
+	font-size: 60px;
+	font-weight: 700;
+	line-height: 1.3;
+	color: var(--accent);
+	text-align: center;
+}
+
+.title-2 {
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 1.3;
+	margin-bottom: 20px;
+}
+
+/* Dark mode btn */
+
+.dark-mode-btn {
+	order: 9;
+	position: relative;
+
+	display: flex;
+	justify-content: space-between;
+	padding: 5px;
+	width: 52px;
+	height: 26px;
+	border-radius: 50px;
+	background-color: #272727;
+}
+
+.dark-mode-btn::before {
+	content: '';
+
+	position: absolute;
+	top: 1px;
+	left: 1px;
+
+	display: block;
+	width: 24px;
+	height: 24px;
+
+	border-radius: 50%;
+	background-color: var(--white);
+
+	transition: left 0.2s ease-in;
+}
+
+.dark-mode-btn--active::before {
+	left: 26px;
+}
+
+.dark-mode-btn__icon {
+	position: relative;
+	z-index: 9;
+}
+
+/* Button */
+
+.btn {
+	/* перевели ссылку в формат в котором нормально сможем работать с размерами как с обычным блоком*/
+	display: inline-block;
+	/**/
+	height: 48px;
+	padding: 12px 28px;
+
+	border-radius: 5px;
+	background-color: var(--accent);
+	color: var(--white);
+	letter-spacing: 0.15px;
+	font-size: 16px;
+	font-weight: 500;
+
+	/* плавность анимации при наведении*/
+	transition: opacity 0.2s ease-in;
+}
+
+.btn:hover {
+	opacity: 0.7;
+}
+
+.btn:active {
+	position: relative;
+	top: 1px;
+}
+
+.btn-outline {
+	display: flex;
+	column-gap: 10px;
+	align-items: center;
+
+	height: 48px;
+	padding: 12px 20px;
+	margin-bottom: 30px;
+
+	border-radius: 5px;
+	border: 1px solid #000;
+	background-color: var(--white);
+	color: #000;
+
+	/* плавность анимации при наведении*/
+	transition: opacity 0.2s ease-in;
+}
+
+.btn-outline:hover {
+	opacity: 0.7;
+}
+
+.btn-outline:active {
+	position: relative;
+	top: 1px;
+}
+
+/* Projects */
+
+.projects {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	column-gap: 30px;
+	row-gap: 30px;
+}
+
+.project {
+	max-width: 370px;
+	background-color: var(--project-card-bg);
+	box-shadow: var(--box-shadow);
+	border-radius: 10px;
+
+	/* плавность анимации при наведении*/
+	transition: opacity 0.2s ease-in;
+}
+
+.project:hover {
+	opacity: 0.8;
+}
+
+.project__img {
+	border-radius: 10px;
+}
+
+.project__title {
+	padding: 15px 20px 25px;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 1.3;
+	color: var(--text-color);
+}
+
+/* Project details */
+
+.project-details {
+	margin: 0 auto;
+	max-width: 865px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	text-align: center;
+}
+
+.project-details__cover {
+	min-width: 100%;
+	margin-bottom: 40px;
+
+	box-shadow: var(--box-shadow);
+	border-radius: 10px;
+}
+
+.project-details__desc {
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 1.3;
+	margin-bottom: 30px;
+}
+
+.project-details__desc p strong {
+	color: var(--accent);
+}
+
+.project-details__desc p + p {
+	margin-top: 0.5em;
+}
+
+/* Content list */
+
+.content-list {
+	margin: 0 auto;
+	min-width: 570px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 40px;
+	text-align: center;
+}
+
+.content-list a {
+	color: var(--accent);
+}
+
+.content-list__item {
+	font-size: 18px;
+	line-height: 1.3;
+}
+
+.content-list__item p + p {
+	margin-top: 0.5em;
+}
+
+/* Footer */
+
+.footer {
+	margin-top: auto;
+	padding: 60px 0 50px;
+	background-color: var(--dark-bg);
+	color: var(--heder-text);
+}
+
+.footer__wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 27px;
+}
+
+.social {
+	display: flex;
+	column-gap: 30px;
+	align-items: center;
+}
+
+.copyright {
+	font-size: 16px;
+}
+
+@media (max-width: 646px) {
+	/* Header */
+
+	.header {
+		min-height: unset;
+	}
+
+	.header__title {
+		font-size: 30px;
+	}
+
+	.header__title strong {
+		font-size: 40px;
+	}
+
+	/* General */
+
+	.section {
+		padding: 40px 0;
+	}
+
+	.title-1 {
+		margin-bottom: 30px;
+		font-size: 40px;
+	}
+
+	.title-2 {
+		margin-bottom: 10px;
+		font-size: 30px;
+	}
+
+	/* Projects */
+
+	.project__title {
+		font-size: 20px;
+	}
+
+	/* Project page */
+
+	.project-details__desc {
+		margin-bottom: 20px;
+		font-size: 20px;
+	}
+
+	/* Content List */
+
+	.content-list {
+		row-gap: 20px;
+		min-width: unset;
+	}
+
+	.content-list__item {
+		font-size: 16px;
+	}
+
+	/* Footer */
+
+	.footer {
+		padding: 40px 0 30px;
+	}
+
+	.footer__wrapper {
+		row-gap: 20px;
+	}
+
+	.social {
+		column-gap: 20px;
+	}
+
+	.social__item {
+		width: 28px;
+	}
+
+	.nav-row {
+		justify-content: space-between;
+	}
+
+	.dark-mode-btn {
+		order: 0;
+	}
+}
